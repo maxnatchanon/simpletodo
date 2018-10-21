@@ -23,6 +23,7 @@ The project will use MVVM pattern and store data using Apple's Core Data.
 - **EDIT** to-do item : when EDIT button in popup is tapped, bring user to edit screen. (Edit screen is almost the same as add screen, just change the header to 'Edit item' and change the  button label to 'SAVE')
 - **DELETE** to-do item : when DELETE button in popup is tapped, ask for confirmation then delete that item, close the popup and update the table.
 
+## 3. CODE
 
 
 *working . . .*
