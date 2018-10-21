@@ -14,7 +14,7 @@ When the to-do item is tapped, the popup with detail of the item will show and d
 Each to-do item will has only a title and a not-so-long note for simplicity.  
 
 ## 2. PLAN
-The project will usำ MVVM pattern and store data using Apple's Core Data.
+The project will use MVVM pattern and store data using Apple's Core Data.
 
 **List of main functions**
 - **VIEW** to-do item : when user taps any items in table view, show popup with item detail as designed.
