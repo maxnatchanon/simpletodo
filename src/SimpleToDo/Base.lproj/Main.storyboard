@@ -107,9 +107,6 @@
                                     <constraint firstAttribute="height" constant="57" id="ukv-kb-S9F"/>
                                 </constraints>
                                 <state key="normal" image="addBtn"/>
-                                <connections>
-                                    <segue destination="AiC-M0-zP8" kind="show" id="uir-4r-X2y"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,15 +125,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t49-CN-WG5"/>
                     </view>
+                    <connections>
+                        <segue destination="AiC-M0-zP8" kind="show" identifier="MainToAddEdit" id="fih-ri-KAR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOP-ou-nNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="452" y="131"/>
         </scene>
-        <!--AddVC-->
+        <!--AddEditVC-->
         <scene sceneID="TwC-x8-GwQ">
             <objects>
-                <viewController title="AddVC" id="AiC-M0-zP8" userLabel="AddVC" sceneMemberID="viewController">
+                <viewController title="AddEditVC" id="AiC-M0-zP8" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mhc-X7-hDO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
