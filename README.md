@@ -9,7 +9,7 @@ First step is to design a user interface.
 I will use Sketch for all the design process.
 
 Here's the first design. (Sketch file avaliable in the repository)
-![](https://i.imgur.com/8rcU6C1.png)
+![](https://i.imgur.com/bUTyzYY.png)
 From left to right, start screen, main screen, view to-do screen, and add to-do screen.  
 When the to-do item is tapped, the popup with detail of the item will show and dim the background.  
 Each to-do item will has only a title and a not-so-long note for simplicity.  
