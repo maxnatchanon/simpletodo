@@ -53,12 +53,9 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW1-Uo-W5p">
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW1-Uo-W5p">
                                         <rect key="frame" x="50.5" y="155.5" width="151" height="50"/>
                                         <state key="normal" image="enterBtn"/>
-                                        <connections>
-                                            <segue destination="Ga0-vK-m3Z" kind="show" id="BSJ-9w-8gw"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -79,62 +76,9 @@
             </objects>
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
-        <!--MainVC-->
-        <scene sceneID="JDo-XO-IEI">
-            <objects>
-                <viewController id="Ga0-vK-m3Z" userLabel="MainVC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7SC-pb-IIH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerBG" translatesAutoresizingMaskIntoConstraints="NO" id="Vmu-nO-aC9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To-do list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jt-wB-YDT">
-                                <rect key="frame" x="120" y="27" width="135" height="44"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="32"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iNr-7p-jhg">
-                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B05-CM-dVF">
-                                <rect key="frame" x="293" y="585" width="57" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="ERP-Pc-uTo"/>
-                                    <constraint firstAttribute="height" constant="57" id="RZ6-WF-F8M"/>
-                                </constraints>
-                                <state key="normal" image="addBtn"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Vmu-nO-aC9" firstAttribute="top" secondItem="7SC-pb-IIH" secondAttribute="top" id="038-t3-tIA"/>
-                            <constraint firstItem="iNr-7p-jhg" firstAttribute="leading" secondItem="o6N-cs-dPL" secondAttribute="leading" id="4LJ-1a-skK"/>
-                            <constraint firstItem="Vmu-nO-aC9" firstAttribute="leading" secondItem="o6N-cs-dPL" secondAttribute="leading" id="5z8-FO-3XR"/>
-                            <constraint firstItem="iNr-7p-jhg" firstAttribute="trailing" secondItem="o6N-cs-dPL" secondAttribute="trailing" id="EOd-FM-8vK"/>
-                            <constraint firstItem="0jt-wB-YDT" firstAttribute="top" secondItem="o6N-cs-dPL" secondAttribute="top" constant="7" id="GdY-jI-g07"/>
-                            <constraint firstItem="iNr-7p-jhg" firstAttribute="bottom" secondItem="o6N-cs-dPL" secondAttribute="bottom" id="H6s-fd-27G"/>
-                            <constraint firstItem="o6N-cs-dPL" firstAttribute="bottom" secondItem="B05-CM-dVF" secondAttribute="bottom" constant="25" id="KUN-pG-Wqu"/>
-                            <constraint firstItem="iNr-7p-jhg" firstAttribute="top" secondItem="Vmu-nO-aC9" secondAttribute="bottom" id="QRm-PI-yMe"/>
-                            <constraint firstItem="Vmu-nO-aC9" firstAttribute="trailing" secondItem="o6N-cs-dPL" secondAttribute="trailing" id="h2y-Ca-HDY"/>
-                            <constraint firstItem="0jt-wB-YDT" firstAttribute="centerX" secondItem="7SC-pb-IIH" secondAttribute="centerX" id="lec-5Y-zYf"/>
-                            <constraint firstItem="o6N-cs-dPL" firstAttribute="trailing" secondItem="B05-CM-dVF" secondAttribute="trailing" constant="25" id="nzl-Qq-KpK"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="o6N-cs-dPL"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oxo-ut-mzS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="816.79999999999995" y="374.66266866566718"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="addBtn" width="57" height="57"/>
         <image name="enterBtn" width="151" height="50"/>
-        <image name="headerBG" width="375" height="80"/>
         <image name="logo" width="209" height="201"/>
         <image name="mainBG" width="375" height="667"/>
     </resources>
