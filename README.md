@@ -2,7 +2,7 @@
 ![](https://i.imgur.com/PI32pKS.png)  
 This is a simple to-do list app for iOS. Created to practice MVVM pattern and Core Data.
 
-**Project status : Planing**
+**Project status : Working**
 
 ## 1. UI DESIGN
 First step is to design a user interface.
@@ -24,6 +24,9 @@ The project will use MVVM pattern and store data using Apple's Core Data.
 - **DELETE** to-do item : when DELETE button in popup is tapped, ask for confirmation then delete that item, close the popup and update the table.
 
 ## 3. CODE
-
+Firstly, I quickly reconstruct the designed UI in storyboard.  
+There're still missing something, e.g. tableview cell or popup, but I will come back to it later.  
+These three view controllers are the only three VC needed for this application.  
+![](https://i.imgur.com/oGLsH0v.png)  
 
 *working . . .*
