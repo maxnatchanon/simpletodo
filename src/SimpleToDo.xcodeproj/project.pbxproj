@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED731CF6217E4BA400205DDD /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED731CF5217E4BA400205DDD /* StartVC.swift */; };
+		ED731CF8217E4F9400205DDD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED731CF7217E4F9400205DDD /* MainVC.swift */; };
+		ED731CFA217E4FB300205DDD /* AddEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED731CF9217E4FB300205DDD /* AddEditVC.swift */; };
+		ED731D05217E504000205DDD /* StartVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED731D04217E504000205DDD /* StartVM.swift */; };
+		ED731D07217E504900205DDD /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED731D06217E504900205DDD /* MainVM.swift */; };
+		ED731D09217E505800205DDD /* AddEditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED731D08217E505800205DDD /* AddEditVM.swift */; };
 		ED9C4ED8217CBF510089D417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C4ED7217CBF510089D417 /* AppDelegate.swift */; };
 		ED9C4EDA217CBF510089D417 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9C4ED9217CBF510089D417 /* ViewController.swift */; };
 		ED9C4EDD217CBF510089D417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9C4EDB217CBF510089D417 /* Main.storyboard */; };
@@ -35,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED731CF5217E4BA400205DDD /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
+		ED731CF7217E4F9400205DDD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		ED731CF9217E4FB300205DDD /* AddEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVC.swift; sourceTree = "<group>"; };
+		ED731D04217E504000205DDD /* StartVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVM.swift; sourceTree = "<group>"; };
+		ED731D06217E504900205DDD /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
+		ED731D08217E505800205DDD /* AddEditVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditVM.swift; sourceTree = "<group>"; };
 		ED9C4ED4217CBF510089D417 /* SimpleToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9C4ED7217CBF510089D417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9C4ED9217CBF510089D417 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +88,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED731CF2217E4B6000205DDD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED731CF5217E4BA400205DDD /* StartVC.swift */,
+				ED731CF7217E4F9400205DDD /* MainVC.swift */,
+				ED731CF9217E4FB300205DDD /* AddEditVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED731CFB217E4FB900205DDD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED731D04217E504000205DDD /* StartVM.swift */,
+				ED731D06217E504900205DDD /* MainVM.swift */,
+				ED731D08217E505800205DDD /* AddEditVM.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ED9C4ECB217CBF510089D417 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +131,8 @@
 		ED9C4ED6217CBF510089D417 /* SimpleToDo */ = {
 			isa = PBXGroup;
 			children = (
+				ED731CFB217E4FB900205DDD /* Model */,
+				ED731CF2217E4B6000205DDD /* View */,
 				ED9C4ED7217CBF510089D417 /* AppDelegate.swift */,
 				ED9C4ED9217CBF510089D417 /* ViewController.swift */,
 				ED9C4EDB217CBF510089D417 /* Main.storyboard */,
@@ -260,8 +294,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED9C4EDA217CBF510089D417 /* ViewController.swift in Sources */,
+				ED731CF8217E4F9400205DDD /* MainVC.swift in Sources */,
+				ED731D05217E504000205DDD /* StartVM.swift in Sources */,
+				ED731CFA217E4FB300205DDD /* AddEditVC.swift in Sources */,
 				ED9C4ED8217CBF510089D417 /* AppDelegate.swift in Sources */,
 				ED9C4EE0217CBF510089D417 /* SimpleToDo.xcdatamodeld in Sources */,
+				ED731D09217E505800205DDD /* AddEditVM.swift in Sources */,
+				ED731CF6217E4BA400205DDD /* StartVC.swift in Sources */,
+				ED731D07217E504900205DDD /* MainVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

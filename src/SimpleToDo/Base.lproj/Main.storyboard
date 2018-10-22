@@ -12,7 +12,7 @@
         <!--StartVC-->
         <scene sceneID="Mtm-5G-u4N">
             <objects>
-                <viewController title="StartVC" id="Jmb-W9-yx2" userLabel="StartVC" sceneMemberID="viewController">
+                <viewController title="StartVC" id="Jmb-W9-yx2" userLabel="StartVC" customClass="StartVC" customModule="SimpleToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JDS-bh-qxO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
         <!--MainVC-->
         <scene sceneID="Khx-CJ-nqc">
             <objects>
-                <viewController title="MainVC" id="fJk-l6-Udk" userLabel="MainVC" sceneMemberID="viewController">
+                <viewController title="MainVC" id="fJk-l6-Udk" userLabel="MainVC" customClass="MainVC" customModule="SimpleToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QC8-I6-uY0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
         <!--AddEditVC-->
         <scene sceneID="TwC-x8-GwQ">
             <objects>
-                <viewController title="AddEditVC" id="AiC-M0-zP8" sceneMemberID="viewController">
+                <viewController title="AddEditVC" id="AiC-M0-zP8" customClass="AddEditVC" customModule="SimpleToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mhc-X7-hDO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
