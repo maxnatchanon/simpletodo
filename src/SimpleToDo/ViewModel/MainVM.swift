@@ -10,14 +10,14 @@ import Foundation
 
 class MainVM {
     
+    var reloadTableViewClosure: (()->())?
+    
     var todoList : [TodoItem] = [TodoItem]() {
         didSet {
             reloadTableViewClosure?()
         }
     }
-    
-    var reloadTableViewClosure : (()->())?
-    
+
     var numberOfCells : Int {
         return todoList.count
     }
@@ -29,13 +29,17 @@ class MainVM {
         todoList.append(TodoItem(title: "Write some test data", note: "I will use them before working on Core Data.", finished: false))
     }
     
-    func getItem(at indexPath : IndexPath) -> TodoItem {
+    func getItem(at indexPath: IndexPath) -> TodoItem {
         return todoList[indexPath.row]
     }
     
-    func toggleFinished(at indexPath : IndexPath) {
+    func toggleFinished(at indexPath: IndexPath) {
         todoList[indexPath.row].finished = !todoList[indexPath.row].finished
         reloadTableViewClosure?()
+    }
+    
+    func getAddEditVM(at indexPath: IndexPath) -> AddEditVM {
+        return AddEditVM(item: todoList[indexPath.row])
     }
     
 }

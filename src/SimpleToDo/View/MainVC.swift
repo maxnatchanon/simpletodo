@@ -19,14 +19,12 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initView()
         initVM()
+        initView()
     }
     
-    func initView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 70
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     func initVM() {
@@ -36,8 +34,14 @@ class MainVC: UIViewController {
         mainVM.initFetch()
     }
     
+    func initView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 70
+    }
+    
     @IBAction func addBtnPressed(_ sender: Any) {
-        // TODO: Go to add screen
+        performSegue(withIdentifier: "MainToAddEdit", sender: nil)
     }
     
 }
@@ -46,7 +50,6 @@ class MainVC: UIViewController {
 extension MainVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(mainVM.numberOfCells)
         return mainVM.numberOfCells
     }
     
@@ -67,4 +70,20 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+}
+
+// Prepare for segue
+extension MainVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "MainToAddEdit") {
+            if let addEditVC = segue.destination as? AddEditVC {
+                if (sender == nil) {
+                    addEditVC.isAddScreen = true
+                } else {
+                    addEditVC.isAddScreen = false
+                    // TODO: Prepare edit screen params
+                }
+            }
+        }
+    }
 }

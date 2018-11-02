@@ -202,12 +202,18 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2G-qH-8Nv">
                                 <rect key="frame" x="112" y="592" width="151" height="50"/>
                                 <state key="normal" image="doneBtn"/>
+                                <connections>
+                                    <action selector="doneBtnPressed:" destination="AiC-M0-zP8" eventType="touchUpInside" id="TDk-hg-ZQL"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtO-9d-6iL">
                                 <rect key="frame" x="40" y="143" width="295" height="35"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDidChange:" destination="AiC-M0-zP8" eventType="editingChanged" id="yTb-oD-Q9v"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cq-af-GKO">
                                 <rect key="frame" x="40" y="105" width="285" height="33"/>
@@ -256,6 +262,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kud-LB-5TY"/>
                     </view>
+                    <connections>
+                        <outlet property="header" destination="wGO-8U-zsB" id="Ppm-Jw-m3B"/>
+                        <outlet property="noteTextView" destination="LLr-6x-yeX" id="f0Q-vj-59i"/>
+                        <outlet property="titleTextField" destination="MtO-9d-6iL" id="724-95-cRU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FTa-ZZ-TUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
