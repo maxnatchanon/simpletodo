@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jmb-W9-yx2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jmb-W9-yx2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,6 +99,47 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="njU-g4-MWY">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="70" id="4DN-r7-ddF" customClass="TableViewCell" customModule="SimpleToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4DN-r7-ddF" id="oeo-nn-h9w">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAO-WF-NmD">
+                                                    <rect key="frame" x="20" y="22" width="26" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="26" id="CgL-6b-Cpd"/>
+                                                        <constraint firstAttribute="height" constant="26" id="VD6-xK-M5U"/>
+                                                    </constraints>
+                                                    <state key="normal" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="checkBtnPressed:" destination="4DN-r7-ddF" eventType="touchUpInside" id="YDw-Lk-Pmg"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Dexter SS5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3v-6u-Rdb">
+                                                    <rect key="frame" x="61" y="22.5" width="294" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                    <color key="textColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eAO-WF-NmD" firstAttribute="centerY" secondItem="oeo-nn-h9w" secondAttribute="centerY" id="3bH-NM-rIc"/>
+                                                <constraint firstItem="F3v-6u-Rdb" firstAttribute="centerY" secondItem="oeo-nn-h9w" secondAttribute="centerY" id="NO0-2q-sTW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="F3v-6u-Rdb" secondAttribute="trailing" constant="5" id="XUm-TI-FM3"/>
+                                                <constraint firstItem="F3v-6u-Rdb" firstAttribute="leading" secondItem="eAO-WF-NmD" secondAttribute="trailing" constant="15" id="ZHg-cC-tDo"/>
+                                                <constraint firstItem="eAO-WF-NmD" firstAttribute="leading" secondItem="oeo-nn-h9w" secondAttribute="leadingMargin" constant="5" id="h44-lh-cDY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBtn" destination="eAO-WF-NmD" id="gbV-4D-53v"/>
+                                            <outlet property="title" destination="F3v-6u-Rdb" id="0Xx-2c-SYw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSc-IK-Tzk">
                                 <rect key="frame" x="293" y="585" width="57" height="57"/>
@@ -107,6 +148,9 @@
                                     <constraint firstAttribute="height" constant="57" id="ukv-kb-S9F"/>
                                 </constraints>
                                 <state key="normal" image="addBtn"/>
+                                <connections>
+                                    <action selector="addBtnPressed:" destination="fJk-l6-Udk" eventType="touchUpInside" id="pbM-1E-sm9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -126,12 +170,13 @@
                         <viewLayoutGuide key="safeArea" id="t49-CN-WG5"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="njU-g4-MWY" id="1eA-tu-GdR"/>
                         <segue destination="AiC-M0-zP8" kind="show" identifier="MainToAddEdit" id="fih-ri-KAR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOP-ou-nNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="452" y="131"/>
+            <point key="canvasLocation" x="452" y="130.88455772113943"/>
         </scene>
         <!--AddEditVC-->
         <scene sceneID="TwC-x8-GwQ">
@@ -225,5 +270,6 @@
         <image name="headerBG" width="375" height="80"/>
         <image name="logo" width="209" height="201"/>
         <image name="mainBG" width="375" height="667"/>
+        <image name="unchecked" width="26" height="26"/>
     </resources>
 </document>
