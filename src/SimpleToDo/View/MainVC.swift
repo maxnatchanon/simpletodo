@@ -60,18 +60,31 @@ class MainVC: UIViewController, UIGestureRecognizerDelegate {
         popUpBgDimView.isUserInteractionEnabled = true
     }
     
+    // Button functions
     @IBAction func addBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: "MainToAddEdit", sender: nil)
     }
-    
     @IBAction func editBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: "MainToAddEdit", sender: popUpIndexPath)
     }
-    
     @IBAction func deleteBtnPressed(_ sender: Any) {
-        
+        let alert = UIAlertController.init(title: "Delete this item?", message: "This action cannot be undone.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
+            self.mainVM.deleteItem(at: self.popUpIndexPath!) {
+                UIView.animate(withDuration: 0.25) {
+                    self.popUpBgDimView.alpha = 0
+                }
+                self.popUpIndexPath = nil
+                self.mainVM.fetchData()
+                self.tableView.reloadData()
+            }
+        }))
+        alert.addAction(UIAlertAction.init(title: "Back", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
+    // Close current pop up
+    // Will be called when user tap the dimmed background
     @objc func closePopUp() {
         if (popUpIndexPath == nil) { return }
         UIView.animate(withDuration: 0.25) {
@@ -80,6 +93,7 @@ class MainVC: UIViewController, UIGestureRecognizerDelegate {
         popUpIndexPath = nil
     }
     
+    // To disable gesture recognizer on child views
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if touch.view!.isDescendant(of: self.popUpView){
             return false
@@ -125,6 +139,7 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 // Prepare for segue
+// Decide to go to add or edit screen by checking sender value
 extension MainVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "MainToAddEdit") {

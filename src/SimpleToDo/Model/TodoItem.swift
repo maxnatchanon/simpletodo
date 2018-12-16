@@ -9,13 +9,15 @@
 import Foundation
 
 struct TodoItem {
-    let title : String
-    let note : String
-    var finished : Bool
+    let title: String
+    let note: String
+    var finished: Bool
+    let date: Date
     
-    init(title : String, note : String, finished : Bool) {
+    init(title: String, note: String, finished: Bool, date: Date) {
         self.title = title
         self.note = note
         self.finished = finished
+        self.date = date
     }
 }

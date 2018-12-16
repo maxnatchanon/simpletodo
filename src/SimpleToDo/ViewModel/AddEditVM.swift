@@ -14,6 +14,7 @@ class AddEditVM {
     var title: String
     var note: String
     var finished: Bool
+    var date: Date
     
     var managedItem: NSManagedObject!
     
@@ -23,10 +24,11 @@ class AddEditVM {
         self.title = item.title
         self.note = item.note
         self.finished = item.finished
+        self.date = item.date
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ManagedTodoItem")
-        request.predicate = NSPredicate(format: "title = %@", title)
+        request.predicate = NSPredicate(format: "date = %@", date as CVarArg)
         do {
             let data = try context.fetch(request) as! [ManagedTodoItem]
             managedItem = data[0]
@@ -39,6 +41,7 @@ class AddEditVM {
         self.title = ""
         self.note = ""
         self.finished = false
+        self.date = Date()
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "ManagedTodoItem", in: context)

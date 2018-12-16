@@ -32,18 +32,31 @@ class MainVM {
             let fetchedData = try context.fetch(request) as! [ManagedTodoItem]
             self.todoList.removeAll()
             for item in fetchedData {
-                if let title = item.title, let note = item.note {
-                    self.todoList.append(TodoItem(title: title, note: note, finished: item.finished))
+                if let title = item.title, let note = item.note, let date = item.date {
+                    self.todoList.append(TodoItem(title: title, note: note, finished: item.finished, date: date))
                 }
             }
         } catch {
-            print("Fetching failed")
+            print("Fetching at main page failed")
         }
     }
     
     // Return item at indexPath
     func getItem(at indexPath: IndexPath) -> TodoItem {
         return todoList[indexPath.row]
+    }
+    
+    func deleteItem(at indexPath: IndexPath, completion: () -> Void) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ManagedTodoItem")
+        request.predicate = NSPredicate(format: "date = %@", todoList[indexPath.row].date as CVarArg)
+        do {
+            let data = try context.fetch(request) as! [ManagedTodoItem]
+            context.delete(data[0])
+        } catch {
+            print("Deleting at main page failed")
+        }
+        completion()
     }
     
     // Will be called when user tap the circle in front of each item
@@ -59,7 +72,7 @@ class MainVM {
             data[0].setValue(todoList[indexPath.row].finished, forKey: "finished")
             try context.save()
         } catch {
-            print("Editing failed")
+            print("Editing at main page failed")
         }
     }
     
