@@ -26,11 +26,15 @@ class MainVM {
     func fetchData() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ManagedTodoItem")
+        let dateSort = NSSortDescriptor(key: #keyPath(ManagedTodoItem.date), ascending: false)
+        request.sortDescriptors = [dateSort]
         do {
             let fetchedData = try context.fetch(request) as! [ManagedTodoItem]
             self.todoList.removeAll()
             for item in fetchedData {
-                self.todoList.append(TodoItem(title: item.title!, note: item.note!, finished: item.finished))
+                if let title = item.title, let note = item.note {
+                    self.todoList.append(TodoItem(title: title, note: note, finished: item.finished))
+                }
             }
         } catch {
             print("Fetching failed")

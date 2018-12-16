@@ -49,6 +49,10 @@ class AddEditVC: UIViewController, UITextViewDelegate {
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     // Update title and note in view model
     @IBAction private func textFieldDidChange(_ sender: Any) {
         addEditVM!.title = titleTextField.text ?? ""

@@ -8,17 +8,23 @@
 
 import UIKit
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var popUpView: UIView!
+    @IBOutlet weak var popUpBgDimView: UIView!
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var popUpTitleLbl: UILabel!
+    @IBOutlet weak var popUpNoteLbl: UILabel!
     
+    var popUpIndexPath: IndexPath?
     lazy var mainVM : MainVM = {
         return MainVM()
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initVM()
         initView()
     }
@@ -26,6 +32,8 @@ class MainVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         mainVM.fetchData()
         tableView.reloadData()
+        popUpIndexPath = nil
+        popUpBgDimView.alpha = 0
     }
     
     func initVM() {
@@ -38,11 +46,45 @@ class MainVC: UIViewController {
     func initView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 50
+        tableView.rowHeight = 55
+        
+        popUpView.layer.cornerRadius = 15
+        popUpView.layer.masksToBounds = true
+        editBtn.layer.cornerRadius = 8
+        deleteBtn.layer.cornerRadius = 8
+        popUpBgDimView.alpha = 0
+        
+        let closePopUpGesture = UITapGestureRecognizer(target: self, action: #selector(self.closePopUp))
+        closePopUpGesture.delegate = self
+        popUpBgDimView.addGestureRecognizer(closePopUpGesture)
+        popUpBgDimView.isUserInteractionEnabled = true
     }
     
     @IBAction func addBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: "MainToAddEdit", sender: nil)
+    }
+    
+    @IBAction func editBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "MainToAddEdit", sender: popUpIndexPath)
+    }
+    
+    @IBAction func deleteBtnPressed(_ sender: Any) {
+        
+    }
+    
+    @objc func closePopUp() {
+        if (popUpIndexPath == nil) { return }
+        UIView.animate(withDuration: 0.25) {
+            self.popUpBgDimView.alpha = 0
+        }
+        popUpIndexPath = nil
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view!.isDescendant(of: self.popUpView){
+            return false
+        }
+        return true
     }
     
 }
@@ -60,19 +102,24 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         }
         
         let cellData = mainVM.getItem(at: indexPath)
-        
-        // Set title, toggle closure and image for each cell
         cell.title.text = cellData.title
         cell.toggleFinishedClosure = { [weak self] () in
             self?.mainVM.toggleFinished(at: indexPath)
         }
         cell.checkBtn.setImage(UIImage.init(named: (cellData.finished) ? "checked" : "unchecked"), for: .normal)
+        cell.selectionStyle = .none
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Show detail popup
+        popUpIndexPath = indexPath
+        let popUpItem = mainVM.getItem(at: indexPath)
+        popUpTitleLbl.text = popUpItem.title
+        popUpNoteLbl.text = popUpItem.note
+        UIView.animate(withDuration: 0.25) {
+            self.popUpBgDimView.alpha = 1
+        }
     }
     
 }

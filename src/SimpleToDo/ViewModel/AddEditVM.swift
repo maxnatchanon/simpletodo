@@ -15,31 +15,47 @@ class AddEditVM {
     var note: String
     var finished: Bool
     
+    var managedItem: NSManagedObject!
+    
     var updateTitle: ((String)->())?
     
     init(item: TodoItem) {
         self.title = item.title
         self.note = item.note
         self.finished = item.finished
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ManagedTodoItem")
+        request.predicate = NSPredicate(format: "title = %@", title)
+        do {
+            let data = try context.fetch(request) as! [ManagedTodoItem]
+            managedItem = data[0]
+        } catch {
+            print("Fetching at edit page failed")
+        }
     }
     
     init() {
         self.title = ""
         self.note = ""
         self.finished = false
+
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "ManagedTodoItem", in: context)
+        managedItem = NSManagedObject(entity: entity!, insertInto: context)
     }
     
     func saveItem() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "ManagedTodoItem", in: context)
-        let newItem = NSManagedObject(entity: entity!, insertInto: context)
-        newItem.setValue(self.title, forKey: "title")
-        newItem.setValue(self.note, forKey: "note")
-        newItem.setValue(self.finished, forKey: "finished")
+        managedItem.setValue(self.title, forKey: "title")
+        managedItem.setValue(self.note, forKey: "note")
+        managedItem.setValue(self.finished, forKey: "finished")
+        managedItem.setValue(Date(), forKey: "date")
         do {
             try context.save()
         } catch {
-            print("Saving failed")
+            print("Saving at edit page failed")
         }
     }
+
 }
