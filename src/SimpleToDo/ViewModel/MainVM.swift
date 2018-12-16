@@ -46,6 +46,7 @@ class MainVM {
         return todoList[indexPath.row]
     }
     
+    // Delete item at indexPath
     func deleteItem(at indexPath: IndexPath, completion: () -> Void) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ManagedTodoItem")

@@ -43,17 +43,18 @@ class AddEditVC: UIViewController, UITextViewDelegate {
         noteTextView.text = (isAddScreen) ? "" : addEditVM!.note
     }
 
-    // Save item when user pressed done button
+    // Save item when user pressed done button then dismiss the view
     @IBAction func doneBtnPressed(_ sender: Any) {
         addEditVM!.saveItem()
         dismiss(animated: true, completion: nil)
     }
 
+    // Dismiss the view without saving
     @IBAction func backBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // Update title and note in view model
+    // Update title and note in view model when textfield/textview changed
     @IBAction private func textFieldDidChange(_ sender: Any) {
         addEditVM!.title = titleTextField.text ?? ""
     }

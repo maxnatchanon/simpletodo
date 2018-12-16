@@ -18,8 +18,21 @@ class AddEditVM {
     
     var managedItem: NSManagedObject!
     
-    var updateTitle: ((String)->())?
+    // Initialize an empty item
+    // Will be called when enter in add item mode
+    init() {
+        self.title = ""
+        self.note = ""
+        self.finished = false
+        self.date = Date()
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "ManagedTodoItem", in: context)
+        managedItem = NSManagedObject(entity: entity!, insertInto: context)
+    }
     
+    // Initialize by an existing item
+    // Will be called when enter in edit item mode
     init(item: TodoItem) {
         self.title = item.title
         self.note = item.note
@@ -37,17 +50,7 @@ class AddEditVM {
         }
     }
     
-    init() {
-        self.title = ""
-        self.note = ""
-        self.finished = false
-        self.date = Date()
-
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "ManagedTodoItem", in: context)
-        managedItem = NSManagedObject(entity: entity!, insertInto: context)
-    }
-    
+    // Save the data when user pressed save button
     func saveItem() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         managedItem.setValue(self.title, forKey: "title")
