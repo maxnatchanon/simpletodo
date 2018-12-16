@@ -96,7 +96,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="njU-g4-MWY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="njU-g4-MWY">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -120,15 +120,15 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch Dexter SS5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3v-6u-Rdb">
-                                                    <rect key="frame" x="61" y="22.5" width="294" height="25"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                    <rect key="frame" x="61" y="23.5" width="294" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                                     <color key="textColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eAO-WF-NmD" firstAttribute="centerY" secondItem="oeo-nn-h9w" secondAttribute="centerY" id="3bH-NM-rIc"/>
-                                                <constraint firstItem="F3v-6u-Rdb" firstAttribute="centerY" secondItem="oeo-nn-h9w" secondAttribute="centerY" id="NO0-2q-sTW"/>
+                                                <constraint firstItem="F3v-6u-Rdb" firstAttribute="centerY" secondItem="oeo-nn-h9w" secondAttribute="centerY" constant="1" id="NO0-2q-sTW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="F3v-6u-Rdb" secondAttribute="trailing" constant="5" id="XUm-TI-FM3"/>
                                                 <constraint firstItem="F3v-6u-Rdb" firstAttribute="leading" secondItem="eAO-WF-NmD" secondAttribute="trailing" constant="15" id="ZHg-cC-tDo"/>
                                                 <constraint firstItem="eAO-WF-NmD" firstAttribute="leading" secondItem="oeo-nn-h9w" secondAttribute="leadingMargin" constant="5" id="h44-lh-cDY"/>

@@ -6,7 +6,9 @@
 //  Copyright © 2561 Natchanon A. All rights reserved.
 //
 
+import UIKit
 import Foundation
+import CoreData
 
 class AddEditVM {
     var title: String
@@ -28,7 +30,16 @@ class AddEditVM {
     }
     
     func saveItem() {
-        // TODO: Update item in database
-        print(title, note, finished)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "ManagedTodoItem", in: context)
+        let newItem = NSManagedObject(entity: entity!, insertInto: context)
+        newItem.setValue(self.title, forKey: "title")
+        newItem.setValue(self.note, forKey: "note")
+        newItem.setValue(self.finished, forKey: "finished")
+        do {
+            try context.save()
+        } catch {
+            print("Saving failed")
+        }
     }
 }

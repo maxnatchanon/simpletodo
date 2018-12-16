@@ -13,7 +13,6 @@ class AddEditVC: UIViewController, UITextViewDelegate {
     var isAddScreen: Bool!
     var addEditVM: AddEditVM?
     
-    
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!

@@ -24,6 +24,7 @@ class MainVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        mainVM.fetchData()
         tableView.reloadData()
     }
     
@@ -31,13 +32,13 @@ class MainVC: UIViewController {
         mainVM.reloadTableViewClosure = { [weak self] () in
             self?.tableView.reloadData()
         }
-        mainVM.initFetch()
+        mainVM.fetchData()
     }
     
     func initView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 70
+        tableView.rowHeight = 50
     }
     
     @IBAction func addBtnPressed(_ sender: Any) {
@@ -70,6 +71,10 @@ extension MainVC: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Show detail popup
+    }
+    
 }
 
 // Prepare for segue
@@ -81,7 +86,7 @@ extension MainVC {
                     addEditVC.isAddScreen = true
                 } else {
                     addEditVC.isAddScreen = false
-                    // TODO: Prepare edit screen params
+                    addEditVC.addEditVM = self.mainVM.getAddEditVM(at: sender as! IndexPath)
                 }
             }
         }
